@@ -14,7 +14,7 @@
  * one side pin (either one) to ground,  the other side pin to +5V
  */
 
-#include "CocoMidi.h" // you have to include the TeenyMidi library
+#include "CocoMidi.h" // you have to include the CocoMidi library
 
 #define SENSOR_PIN 2
 

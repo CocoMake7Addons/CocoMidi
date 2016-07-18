@@ -12,7 +12,7 @@
 --------------------------------------------------------------------------------------------- */
 
  
-#include "CocoMidi.h"            // you have to include the TeenyMidi library
+#include "CocoMidi.h"            // you have to include the CocoMidi library
 
 
 MIDIMessage message;         // variable to store the last received MIDI message

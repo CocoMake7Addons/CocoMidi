@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------------------- */
 
 
-#include <CocoMidi.h>        // you MUST include the TeenyMidi library
+#include <CocoMidi.h>        // you MUST include the CocoMidi library
 
 unsigned long lastTime;            // variable to store the last time we sent a chord
 

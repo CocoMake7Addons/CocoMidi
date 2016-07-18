@@ -530,7 +530,7 @@ void sendCC(uint8_t ch, uint8_t value)
 
 };
 
-CocoMidiDevice TeenyMidi = TeenyMidiDevice();
+CocoMidiDevice CocoMidi = CocoMidiDevice();
 
 #ifdef __cplusplus
 extern "C"{

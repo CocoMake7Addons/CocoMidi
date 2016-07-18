@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------------------- */
 
  
-#include "CocoMidi.h" // you have to include the TeenyMidi library
+#include "CocoMidi.h" // you have to include the CocoMidi library
 
 MIDIMessage message;// Variable to hold most recent midi message
 
