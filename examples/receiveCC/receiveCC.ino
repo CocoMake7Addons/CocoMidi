@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------------------------
 
-  TeenyMidi Library
+  CocoMidi Library
   based on Gnusbuino MIDI Library 2012 by Michael Egger
  
   How to listen to MIDI ControlChange Messages:
@@ -12,7 +12,7 @@
 --------------------------------------------------------------------------------------------- */
 
  
-#include "TeenyMidi.h"            // you have to include the TeenyMidi library
+#include "CocoMidi.h"            // you have to include the TeenyMidi library
 
 
 MIDIMessage message;         // variable to store the last received MIDI message
@@ -20,20 +20,20 @@ MIDIMessage message;         // variable to store the last received MIDI message
 
 void setup() {               
   pinMode(3,OUTPUT);         // Pin 3 (and 4) on the Gnusbuino has a PWM ("analog") output
-  TeenyMidi.init();
+  CocoMidi.init();
 }
 
 
 void loop() {
   
-    if (TeenyMidi.read(&message)) {                            // see if we have received a new MIDI message and store it in our variable
+    if (CocoMidi.read(&message)) {                            // see if we have received a new MIDI message and store it in our variable
                                                           // don't forget the ampersand (&) before the variable name !
         if(message.command == MIDI_CONTROLCHANGE) {
                 analogWrite(3,message.value);              
         }
     }    
     
-    TeenyMidi.update();
+    CocoMidi.update();
  }
  
  

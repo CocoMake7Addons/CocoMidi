@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------------------------
 
-  TeenyMidi Library
+  CocoMidi Library
   based on Gnusbuino MIDI Library 2012 by Michael Egger
  
   SEND CONTROL CHANGE EXAMPLE
@@ -14,7 +14,7 @@
  * one side pin (either one) to ground,  the other side pin to +5V
  */
 
-#include "TeenyMidi.h" // you have to include the TeenyMidi library
+#include "CocoMidi.h" // you have to include the TeenyMidi library
 
 #define SENSOR_PIN 2
 
@@ -23,7 +23,7 @@ unsigned char sentValue = 255;         // we only want to send data when there's
                              // so we have to keep track of the last value that was sent to the host
 
 void setup() {               
-  TeenyMidi.init();
+  CocoMidi.init();
 }
 
 
@@ -32,13 +32,13 @@ void loop() {
   sensorValue = analogRead(SENSOR_PIN) / 8;  // analogRead returns 0-1023, we need 0-127
   if (sensorValue != sentValue) {  // compare actual readout to last sent value    
        
-        TeenyMidi.send(MIDI_CONTROLCHANGE,1,sensorValue);     // put new control change message into MIDI sending queue
+        CocoMidi.send(MIDI_CONTROLCHANGE,1,sensorValue);     // put new control change message into MIDI sending queue
         sentValue = sensorValue;                          // store last sent value
   }
   
-    TeenyMidi.delay(10); // give some time for sending, otherwhise the MIDI queue could fill up
+    CocoMidi.delay(10); // give some time for sending, otherwhise the MIDI queue could fill up
 
-    TeenyMidi.update();
+    CocoMidi.update();
 }
 
 

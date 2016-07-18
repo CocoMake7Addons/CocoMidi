@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------------------------
 
-  TeenyMidi Library
+  CocoMidi Library
   based on Gnusbuino MIDI Library 2012 by Michael Egger
  
   RECEIVE NOTE EXAMPLE
@@ -11,20 +11,20 @@
 --------------------------------------------------------------------------------------------- */
 
  
-#include "TeenyMidi.h"            // you have to include the TeenyMidi library
+#include "CocoMidi.h"            // you have to include the TeenyMidi library
 
 
 MIDIMessage message;          
 
 void setup() {  
   pinMode(3,OUTPUT);     
-  TeenyMidi.init();    
+  CocoMidi.init();    
 }
 
 
 void loop() {
   
-    if (TeenyMidi.read(&message)) {
+    if (CocoMidi.read(&message)) {
       
         switch(message.command) {
             case MIDI_NOTEON:
@@ -38,7 +38,7 @@ void loop() {
     }
 
 
-    TeenyMidi.update();
+    CocoMidi.update();
 
  }
  

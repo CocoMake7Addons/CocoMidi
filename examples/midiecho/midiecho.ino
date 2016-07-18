@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------------------------
 
-  TeenyMidi Library
+  CocoMidi Library
   based on Gnusbuino MIDI Library 2012 by Michael Egger
  
   MIDIECHO EXAMPLE
@@ -11,22 +11,22 @@
 --------------------------------------------------------------------------------------------- */
 
  
-#include "TeenyMidi.h" // you have to include the TeenyMidi library
+#include "CocoMidi.h" // you have to include the TeenyMidi library
 
 MIDIMessage message;// Variable to hold most recent midi message
 
 void setup() {
-  TeenyMidi.init();
+  CocoMidi.init();
 }
 
 
 void loop() {
   
-    if (TeenyMidi.read(&message)) {                                    // need to put the ampersand "&" before "message"
-        TeenyMidi.send(message.command,message.key,message.value);
+    if (CocoMidi.read(&message)) {                                    // need to put the ampersand "&" before "message"
+        CocoMidi.send(message.command,message.key,message.value);
     }
 
-    TeenyMidi.update();
+    CocoMidi.update();
     
  }
  

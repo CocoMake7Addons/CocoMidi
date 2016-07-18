@@ -1,4 +1,4 @@
-TeenyMidi	KEYWORD1
+CocoMidi	KEYWORD1
 update KEYWORD2
 send KEYWORD2
 read KEYWORD2

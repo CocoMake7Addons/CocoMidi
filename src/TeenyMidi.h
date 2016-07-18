@@ -1,12 +1,12 @@
 /*
 
-TeenyMidi Library (based on GnusbuinoMidi)
+CocoMidi Library (based on GnusbuinoMidi)
 
 */
 
 
-#ifndef __TeenyMidi_h__
-#define __TeenyMidi_h__
+#ifndef __CocoMidi_h__
+#define __CocoMidi_h__
 
 #include <Arduino.h>
 #include <avr/pgmspace.h>
@@ -14,7 +14,7 @@ TeenyMidi Library (based on GnusbuinoMidi)
 #include <avr/delay.h>
 #include <string.h>
 
-#include <TeenyMidiConfig.h>
+#include <CocoMidiConfig.h>
 
 #include "usbdrv.h"
 
@@ -338,7 +338,7 @@ typedef struct _midi_msg
     uchar byte[3];
 } midi_msg;
 
-class TeenyMidiDevice {
+class CocoMidiDevice {
 private:
     unsigned char _midiOutData[4];
 
@@ -530,7 +530,7 @@ void sendCC(uint8_t ch, uint8_t value)
 
 };
 
-TeenyMidiDevice TeenyMidi = TeenyMidiDevice();
+CocoMidiDevice TeenyMidi = TeenyMidiDevice();
 
 #ifdef __cplusplus
 extern "C"{
@@ -623,7 +623,7 @@ void usbFunctionWriteOut(unsigned char * data, unsigned char len)
 
             midi_msg* msg = (midi_msg*)data;
 
-            TeenyMidi.receiveMIDI(msg->byte[0],msg->byte[1],msg->byte[2]);
+            CocoMidi.receiveMIDI(msg->byte[0],msg->byte[1],msg->byte[2]);
 
             data += sizeof(midi_msg);
             len -= sizeof(midi_msg);
@@ -637,4 +637,4 @@ void usbFunctionWriteOut(unsigned char * data, unsigned char len)
 #endif
 
 
-#endif // __TeenyMidi_h__
+#endif // __CocoMidi_h__
