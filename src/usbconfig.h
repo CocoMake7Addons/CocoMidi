@@ -30,15 +30,15 @@ section at the end of this file).
 
 #ifndef TEENYMIDI_ENABLE_CUSTOM_USB_CFG
 
-//if cocomake7
+//if cocomake7 attiny84
 #if defined (ARDUINO_AVR_CM)
 
 #define USB_CFG_IOPORTNAME      A
 #define USB_CFG_DMINUS_BIT      6
 #define USB_CFG_DPLUS_BIT       7
 
-//if teenyriot
-#elif defined (ARDUINO_AVR_TEENYRIOT)
+//if cocomake7 attiny85
+#elif defined (ARDUINO_AVR_COCOMAKE7)
 
 #define USB_CFG_IOPORTNAME      B
 #define USB_CFG_DMINUS_BIT      5
