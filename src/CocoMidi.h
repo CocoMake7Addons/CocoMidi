@@ -96,10 +96,10 @@ CocoMidi Library (based on GnusbuinoMidi)
 #define M10_DIR_OUT     0x00
 
 
-#define TEENYMIDI_WITH_AUDIO_CONTROL
+#define COCOMIDI_WITH_AUDIO_CONTROL
 
 // don't include (mandatory) dummy AudioControl descriptor
-#ifndef TEENYMIDI_WITH_AUDIO_CONTROL
+#ifndef COCOMIDI_WITH_AUDIO_CONTROL
 #define WITHOUT_AUDIO_CONTROL
 #endif
 
@@ -275,7 +275,7 @@ static PROGMEM const char configDescrMIDI[] = { /* USB configuration descriptor 
     9,      /* bLenght */
     USBDESCR_ENDPOINT,  /* bDescriptorType = endpoint */
     1 | M10_DIR_OUT,  /* bEndpointAddress OUT endpoint number 1 */
-#ifdef TEENYMIDI_ENABLE_ANDROID
+#ifdef COCOMIDI_ENABLE_ANDROID
     M10_BULK,   /* bmAttributes: 2:Bulk, 3:Interrupt endpoint */
 #else
     M10_INTERRUPT,
@@ -298,7 +298,7 @@ static PROGMEM const char configDescrMIDI[] = { /* USB configuration descriptor 
     9,      /* bLenght */
     USBDESCR_ENDPOINT,  /* bDescriptorType = endpoint */
     M10_DIR_IN | 1,   /* bEndpointAddress IN endpoint number 1 */
-#ifdef TEENYMIDI_ENABLE_ANDROID
+#ifdef COCOMIDI_ENABLE_ANDROID
     M10_BULK,   /* bmAttributes: 2:Bulk, 3:Interrupt endpoint */
 #else
     M10_INTERRUPT,

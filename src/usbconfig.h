@@ -28,7 +28,7 @@ section at the end of this file).
 
 /* ---------------------------- Hardware Config ---------------------------- */
 
-#ifndef TEENYMIDI_ENABLE_CUSTOM_USB_CFG
+#ifndef COCOMIDI_ENABLE_CUSTOM_USB_CFG
 
 //if cocomake7 attiny84
 #if defined (ARDUINO_AVR_CM)
@@ -240,7 +240,7 @@ section at the end of this file).
  */
 //#define USB_CFG_HAVE_MEASURE_FRAME_LENGTH   0		<--- uncomment if you use barebone avr (without bootloader)
 
-#ifdef TEENYMIDI_ENABLE_DIRECT_BOOT
+#ifdef COCOMIDI_ENABLE_DIRECT_BOOT
 #define USB_CFG_HAVE_MEASURE_FRAME_LENGTH   0
 #else
 #define USB_CFG_HAVE_MEASURE_FRAME_LENGTH   1
@@ -415,7 +415,7 @@ section at the end of this file).
 /* #define USB_INTR_PENDING_BIT    INTF0 */
 /* #define USB_INTR_VECTOR         SIG_INTERRUPT0 */
 
-#ifndef TEENYMIDI_ENABLE_CUSTOM_DPLUS_INTERRUPT
+#ifndef COCOMIDI_ENABLE_CUSTOM_DPLUS_INTERRUPT
 
 #if defined (ARDUINO_AVR_CM)
 
@@ -428,7 +428,7 @@ section at the end of this file).
 #define USB_INTR_PENDING_BIT    PCIF0
 #define USB_INTR_VECTOR         PCINT0_vect
 
-#elif defined (ARDUINO_AVR_TEENYRIOT)
+#elif defined (ARDUINO_AVR_COCOMAKE7)
 
 #ifndef SIG_INTERRUPT0
 #define SIG_INTERRUPT0			_VECTOR(1)

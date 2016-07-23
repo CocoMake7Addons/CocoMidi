@@ -4,15 +4,15 @@
 // Misc Options with midi descriptor.. 
 //
 
-//#define TEENYMIDI_ENABLE_ANDROID		//hack to make device compatible with android device but broke on windows
-//#define TEENYMIDI_WITH_AUDIO_CONTROL	//enable virtual dummy audio device
-#define TEENYMIDI_ENABLE_DIRECT_BOOT	//disable calibration
+//#define COCOMIDI_ENABLE_ANDROID		//hack to make device compatible with android device but broke on windows
+//#define COCOMIDI_WITH_AUDIO_CONTROL	//enable virtual dummy audio device
+#define COCOMIDI_ENABLE_DIRECT_BOOT	//disable calibration
 
 //
 // Custom USB D+ and D- pin
 //
 
-#define TEENYMIDI_ENABLE_CUSTOM_USB_CFG
+#define COCOMIDI_ENABLE_CUSTOM_USB_CFG
 #define USB_CFG_IOPORTNAME B
 #define USB_CFG_DMINUS_BIT 5
 #define USB_CFG_DPLUS_BIT 1
@@ -23,7 +23,7 @@
 //
 
 /*
-#define TEENYMIDI_ENABLE_CUSTOM_DPLUS_INTERRUPT
+#define COCOMIDI_ENABLE_CUSTOM_DPLUS_INTERRUPT
 #define USB_INTR_CFG            PCMSK
 #define USB_INTR_CFG_SET        (1 << USB_CFG_DPLUS_BIT)
 #define USB_INTR_CFG_CLR        0
