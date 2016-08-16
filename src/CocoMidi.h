@@ -359,22 +359,6 @@ private:
     usbInit();
     sei();
   }
-
-
-  void initAdc() {
-    ADCSRA |= (1 << ADEN); // enable ADC (turn on ADC power)
-    ADCSRA &= ~(1 << ADATE); // default to single sample convert mode
-    // Set ADC-Prescaler (-> precision vs. speed)
-    ADCSRA = ((ADCSRA & ~ADC_PRESCALE_MASK) | ADC_PRESCALE_DIV64); // Set ADC Reference Voltage to AVCC
-    #if defined(__AVR_ATtiny85__)
-    ADMUX = 0; // make sure we don't have AREF on PB0 which is used as a usb pullup
-    #else // for bigger chips, use AREF with capacitor
-    ADMUX |= (1 << REFS0);
-    ADMUX &= ~(1 << REFS1);
-    #endif
-    ADCSRA &= ~(1 << ADLAR); // set to right-adjusted result// sbi(ADCSRA, ADIE);              // enable ADC interrupts
-    ADCSRA &= ~(1 << ADIE); // disable ADC interrupts
-  }
 	
 	// delay while updating until we are finished delaying
 	void delay(long milli) {
