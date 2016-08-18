@@ -523,6 +523,7 @@ extern "C"{
 #endif 
 
 
+#ifndef DISABLE_MIDIRESET
 static inline void restartToBootloader()
 {
     cli();                          // turn off interrupts
@@ -538,6 +539,7 @@ static inline void restartToBootloader()
         {
         }
 }
+#endif
 
 // ------------------------------------------------------------------------------
 // - usbFunctionDescriptor
@@ -618,6 +620,7 @@ unsigned char usbFunctionWrite(unsigned char * data, unsigned char len)
 /*---------------------------------------------------------------------------*/
 void usbFunctionWriteOut(unsigned char * data, unsigned char len)
 {
+    #ifndef DISABLE_MIDIRESET
     if (len == 4)
         {
             //Sysex message  07 F0 08 F7
@@ -628,6 +631,7 @@ void usbFunctionWriteOut(unsigned char * data, unsigned char len)
                     restartToBootloader();
                 }
         }
+    #endif
 
     while (len >= sizeof(midi_msg))
         {
