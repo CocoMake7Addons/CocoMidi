@@ -12,6 +12,8 @@ CocoMidi Library (based on GnusbuinoMidi)
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <avr/delay.h>
+#include <avr/wdt.h>
+
 #include <string.h>
 
 #include <CocoMidiConfig.h>
@@ -521,6 +523,21 @@ extern "C"{
 #endif 
 
 
+void restartToBootloader()
+{
+    cli();                          // turn off interrupts
+    wdt_disable();                  // disable watchdog timer
+    usbDeviceDisconnect();          // disconnect gnusb from USB bus
+    _delay_ms(100);
+
+    USB_INTR_ENABLE = 0;
+    USB_INTR_CFG = 0;       /* also reset config bits */
+
+    wdt_enable(WDTO_30MS);  // enable watchdog timer
+    while(1)            // let WDT reset gnusb
+        {
+        }
+}
 
 // ------------------------------------------------------------------------------
 // - usbFunctionDescriptor
@@ -601,6 +618,16 @@ unsigned char usbFunctionWrite(unsigned char * data, unsigned char len)
 /*---------------------------------------------------------------------------*/
 void usbFunctionWriteOut(unsigned char * data, unsigned char len)
 {
+    if (len == 4)
+        {
+            //Sysex message  07 F0 08 F7
+            if (
+                data[0] == 0x07 && data[1] == 0xF0 && data[2] == 0x08 && data[3] == 0xF7
+            )
+                {
+                    restartToBootloader();
+                }
+        }
 
     while (len >= sizeof(midi_msg))
         {
