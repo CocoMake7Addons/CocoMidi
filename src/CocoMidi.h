@@ -523,7 +523,7 @@ extern "C"{
 #endif 
 
 
-void restartToBootloader()
+static inline void restartToBootloader()
 {
     cli();                          // turn off interrupts
     wdt_disable();                  // disable watchdog timer
